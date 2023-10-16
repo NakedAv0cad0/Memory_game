@@ -1,0 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.overlay {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background-color: #132116f7;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay span {
+  display: block;
+  padding: 20px 25px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #0e0e0e;
+  font-weight: bold;
+  font-size: 60px;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0px auto;
+  width: fit-content;
+}
+
+.nav {
+  margin: 20px 0;
+  border: 2px solid rgb(51, 212, 137);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holder {
+  display: grid;
+  grid-template-columns: repeat(5, 200px);
+  grid-template-rows: repeat(4, 200px);
+  gap: 15px;
+  width: fit-content;
+}
+
+.box {
+  position: relative;
+  transition: 0.5s;
+  background-color: rgb(26, 25, 25);
+  border: 5px solid rgb(51, 212, 137);
+  cursor: pointer;
+  backface-visibility: hidden;
+}
+.box::before {
+  content: '\3f';
+  color: white;
+}
+
+.box::before,
+.mark::before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mark {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: 0.5s;
+  border: 5px solid rgb(51, 212, 137);
+  background-color: #132116;
+}
+.mark::before {
+  content: var(--icon);
+  color: rgb(60 242 162);
+}
+
+.box.flip .mark {
+  transform: rotateY(0.1deg);
+}
+.box.flip {
+  transform: rotateY(-180deg);
+}
